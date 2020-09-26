@@ -1,0 +1,8 @@
+{
+  "name": "@polyglot-monorepo/packageA",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "typescript": "^4.0.3"
+  }
+}

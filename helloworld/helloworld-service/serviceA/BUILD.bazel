@@ -1,0 +1,21 @@
+load("@npm//@bazel/typescript:index.bzl", "ts_library")
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+ts_library(
+    name = "serviceA",
+    srcs = glob(["**/*.ts"]),
+    deps = [
+        "//packages/packageA:packageA",
+        "//packages/packageB:packageB",
+    ],
+    tsconfig = ":tsconfig.json"
+)
+
+# yarn bazelisk run //helloworld/helloworld-service/serviceA:start
+nodejs_binary(
+    name = "start",
+    data = [":serviceA"],
+    entry_point = ":index.ts"
+)
