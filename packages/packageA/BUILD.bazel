@@ -5,6 +5,6 @@ package(default_visibility = ["//visibility:public"])
 ts_library(
     name = "packageA",
     srcs = glob(["**/*.ts"]),
+    module_name = "@polyglot-monorepo/packageA",
     tsconfig = ":tsconfig.json",
-    module_name = "@polyglot-monorepo/packageA"
 )

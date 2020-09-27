@@ -6,16 +6,16 @@ package(default_visibility = ["//visibility:public"])
 ts_library(
     name = "serviceA",
     srcs = glob(["**/*.ts"]),
+    tsconfig = ":tsconfig.json",
     deps = [
-        "//packages/packageA:packageA",
-        "//packages/packageB:packageB",
+        "//packages/packageA",
+        "//packages/packageB",
     ],
-    tsconfig = ":tsconfig.json"
 )
 
 # yarn bazelisk run //helloworld/helloworld-service/serviceA:start
 nodejs_binary(
     name = "start",
     data = [":serviceA"],
-    entry_point = ":index.ts"
+    entry_point = ":index.ts",
 )
