@@ -1,0 +1,14 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "grpc-gateway_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/jaeheonji/polyglot-monorepo/helloworld/helloworld-gateway/grpc-gateway",
+    visibility = ["//visibility:private"],
+)
+
+go_binary(
+    name = "grpc-gateway",
+    embed = [":grpc-gateway_lib"],
+    visibility = ["//visibility:public"],
+)
