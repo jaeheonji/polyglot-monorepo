@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package helloworld.api.v1;
+
+option go_package = "github.com/jaeheonji/polyglot-monorepo/protobuf/helloworld/api/v1";
+
+import "google/api/annotations.proto";
+
+service GreeterService {
+    rpc SayHello(HelloRequest) returns (HelloReply) {
+        option (google.api.http) = {
+            get: "/v1/say/{message}"
+        };
+    }
+}
+
+message HelloRequest {
+    string name = 1;
+}
+
+message HelloReply {
+    string message = 1;
+}

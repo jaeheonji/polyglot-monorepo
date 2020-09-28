@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package helloworld.rpc;
+
+option go_package = "github.com/jaeheonji/polyglot-monorepo/protobuf/helloworld/rpc";
+
+service RPCService {
+    rpc SayUnicorn(UnicornRequest) returns (UnicornReply) {}
+}
+
+message UnicornRequest {
+    string name = 1;
+}
+
+message UnicornReply {
+    string message = 1;
+}

@@ -1,0 +1,24 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
+load("@rules_proto//proto:defs.bzl", "proto_library")
+
+proto_library(
+    name = "rpc_proto",
+    srcs = ["rpc.proto"],
+    visibility = ["//visibility:public"],
+)
+
+go_proto_library(
+    name = "rpc_go_proto",
+    compilers = ["@io_bazel_rules_go//proto:go_grpc"],
+    importpath = "github.com/jaeheonji/polyglot-monorepo/protobuf/helloworld/rpc",
+    proto = ":rpc_proto",
+    visibility = ["//visibility:public"],
+)
+
+go_library(
+    name = "rpc",
+    embed = [":rpc_go_proto"],
+    importpath = "github.com/jaeheonji/polyglot-monorepo/protobuf/helloworld/rpc",
+    visibility = ["//visibility:public"],
+)

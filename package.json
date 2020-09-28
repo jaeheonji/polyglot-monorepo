@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "clean": "bazelisk clean --expunge --async",
-    "build:packages": "bazelisk build //packages/..."
+    "build:packages": "bazelisk build //packages/...",
+    "build:protobuf": "bazelisk build //protobuf/..."
   },
   "devDependencies": {
     "@bazel/bazelisk": "^1.6.1",

@@ -5,6 +5,11 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/jaeheonji/polyglot-monorepo/helloworld/helloworld-service/serviceB",
     visibility = ["//visibility:private"],
+    deps = [
+        "//protobuf/helloworld/rpc",
+        "@org_golang_google_grpc//:go_default_library",
+        "@org_golang_google_grpc//reflection",
+    ],
 )
 
 go_binary(
